@@ -25,7 +25,7 @@ difference() {
 
 
     // Embossed diameter value on the outside of the main loop
-    translate([diameter/2 - 1, diameter/2 + thickness/2 + 1, height/2])
+    translate([diameter/2*-1, diameter/2 + thickness/2 - 1, height/2])
     rotate([90,0,180])
     linear_extrude(height = 3)
         text(size_label, size = height-2, valign = "center", halign = "center");
@@ -50,8 +50,3 @@ difference() {
 }
 
 
-//  Embossed diameter value on the outside of the main loop
-translate([diameter/2 + 10, diameter/2 + thickness/2 + 10, height/2])
-rotate([90,0,180])
-linear_extrude(height = 3)
-    text(size_label, size = height-2, valign = "center", halign = "center");
