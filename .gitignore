@@ -2,4 +2,7 @@
 .DS_Store
 #ignore swap files
 *.swp
+#ignore the BOLS2 dirs
 BOSL2-master/
+BOSL2/
+
