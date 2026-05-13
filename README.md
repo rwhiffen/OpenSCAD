@@ -2,4 +2,8 @@
 My collection of OpenSCAD stuff 
 
 Going to try and learn OpenSCAD - 
-First project is going to be to try the Modi-LOOPs with the sizes written on them.
+
+The first proejct was trying to make Modi-LOOPs with the sizes written on them.  It works, mostly. 
+
+The second project is to creata a simple 3d printable box with a sliding lid that can be fastened to a modi-loop tray or ModiBox rail to store things like dice inside your mini storage.
+
