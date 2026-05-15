@@ -9,6 +9,7 @@ wall = 2;               // Wall thickness (2mm)
 tolerance = 0.2;        // Printing gap (0.2mm)
 groove_h = 2;           // Height of the sliding track
 groove_d = 1;           // How deep the track cuts into the wall
+lid_offset_h = 1;       // offset from top of the lid - allows for lid to be positioned independantly
 
 // --- Calculations ---
 inner_size = size - (wall * 2);
@@ -37,21 +38,25 @@ module box() {
         
         // 3. The Tracks (Left, Right, and Back)
         // Left Track
-        translate([wall - groove_d, wall, size - wall - groove_h])
+        translate([wall - groove_d, wall, size - wall - lid_offset_h])
             cube([groove_d + 0.1, size - wall, groove_h]);
         
         // Right Track
-        translate([size - wall, wall, size - wall - groove_h])
+        translate([size - wall, wall, size - wall - lid_offset_h])
             cube([groove_d + 0.1, size - wall, groove_h]);
             
         // Back Track (Stops the lid from sliding out the back)
-        translate([wall, size - wall, size - wall - groove_h])
+        translate([wall, size - wall, size - wall - lid_offset_h])
             cube([inner_size, groove_d + 0.1, groove_h]);
 
         // 4. FRONT ENTRANCE CUTOUT (This allows the lid to slide in)
         // We cut out the top section of the front wall
-        translate([wall - groove_d, -0.1, size - wall - groove_h])
+        // plus the bridge
+        translate([wall - groove_d, -0.1, size - wall - lid_offset_h])
             cube([inner_size + (groove_d * 2), wall + 0.2, groove_h]);
+        translate([wall , -0.1, size - wall])
+            cube([inner_size , wall + 0.2, groove_h]);
+    
     }
 }
 
