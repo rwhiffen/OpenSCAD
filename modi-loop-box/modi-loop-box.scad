@@ -1,6 +1,9 @@
 // Google Gemini generated code for the box, I did some minor tweaks, 
 // and I added the circle loop to attched to the AI generated code for the box.
 //
+// I may take a fresh run at this in Gemini to ask the lid to have a trapezoidal shap like
+// the concept box.
+//
 // rwhiffen - https://github.com/rwhiffen/OpenSCAD/tree/main/modi-loop-box
 //
 // --- Parameters ---
@@ -60,6 +63,23 @@ module box() {
             cube([inner_size , wall + 0.2, groove_h]);
     
     }
+    //add the tab for the loop
+    translate([size*loop_percentage,-5,0])
+        cube([5,5,groove_h]);
+    //add the loop
+    translate([size*loop_percentage+(5/2), -9 - (wall/2) , 0])
+        difference() {
+            cylinder($fn = segment_count,
+                $fa = 12,
+                $fs = 2,
+                h = 5, 
+                d = 9 + wall);
+            cylinder($fn = segment_count,
+                $fa = 12,
+                $fs = 2,
+                h = 5, 
+                d = 9);
+        }
 }
 
 module lid() {
