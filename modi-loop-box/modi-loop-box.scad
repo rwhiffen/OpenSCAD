@@ -1,5 +1,5 @@
-// Google Gemini generated code for the box, I just added the circle loop
-// attched to the AI generated code for the box.
+// Google Gemini generated code for the box, I did some minor tweaks, 
+// and I added the circle loop to attched to the AI generated code for the box.
 //
 // rwhiffen - https://github.com/rwhiffen/OpenSCAD/tree/main/modi-loop-box
 //
@@ -10,6 +10,8 @@ tolerance = 0.2;        // Printing gap (0.2mm)
 groove_h = 2;           // Height of the sliding track
 groove_d = 1;           // How deep the track cuts into the wall
 lid_offset_h = 1;       // offset from top of the lid - allows for lid to be positioned independantly
+loop_percentage = 0.6;   // what percentage 0.00 -> 1.00 down the face should the loop be - allows for shifting the loop to allign with rails
+segment_count = 80;    // smoothness of loop
 
 // --- Calculations ---
 inner_size = size - (wall * 2);
